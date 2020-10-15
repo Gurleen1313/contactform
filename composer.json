@@ -1,0 +1,17 @@
+{
+    "name": "webriderz/contactform",
+    "description": "contact form",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "werbriderz",
+            "email": "contact@webriderz.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+            "psr-4": {
+                "Webriderz\\contactform\\": "src/"
+            }
+        }
+}
