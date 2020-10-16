@@ -15,5 +15,12 @@
             "psr-4": {
                 "Webriderz\\contactform\\": "src/"
             }
-        }
+        },
+   "extra": {
+    "laravel": {
+        "providers": [
+            "Webriderz\\Contactform\\ContactformServiceProvider"
+        ]
+    }
+},   
 }
