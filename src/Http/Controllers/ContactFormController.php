@@ -4,6 +4,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Webriderz\Contactform\Models\ContactForm;
 use Mail;
+use Config;
+
 /**
  * 
  */
@@ -28,11 +30,12 @@ class ContactFormController extends Controller
 			'message'=>$request->message
 		];
 		ContactForm::create($data);
-		Mail::send('contactform::email', ['data'=>$data], function ($message) use ($data) {
+		$receiver=config('contactform.email');
+		Mail::send('contactform::email', ['data'=>$data], function ($message) use ($data,$receiver) {
 		    $message->from('testuc22@gmail.com', 'Webriderz');
 		    $message->sender($data['email'], $data['name']);
 		
-		    $message->to('testuc22@gmail.com', 'Webriderz');
+		    $message->to($receiver, 'Webriderz');
 		
 		    $message->subject('Contact Enquiry Test Package');
 		});
